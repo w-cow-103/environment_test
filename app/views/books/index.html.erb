@@ -6,6 +6,10 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Author</th>
+      <th>Price</th>
+      <th>Published date</th>
+      <th>Actions</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +20,12 @@
         <td><%= book.title %></td>
         <td><%= book.author %></td>
         <td><%= book.price %></td>
-        <td><%= book.published %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= book.published_date %></td>
+        <td class="actions">
+          <%= link_to("Show", book_path(book), :class => 'action show') %>
+          <%= link_to("Edit", edit_book_path(book), :class => 'action edit') %>
+          <%= link_to("Delete", delete_book_path(book), :class => 'action delete') %>
+        </td>
       </tr>
     <% end %>
   </tbody>
